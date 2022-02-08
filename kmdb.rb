@@ -273,5 +273,5 @@ roles = Role.all
 for role in roles
     movie = Movie.where(id: role.movie_id)[0]
     person = Person.where(id: role.person_id)[0]
-    puts "#{movie.title} #{person.Name} #{role.character_name} "
+    puts "#{movie.title} #{person.Name} #{role.character_name}"
 end
