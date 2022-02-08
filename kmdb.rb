@@ -70,12 +70,182 @@
 # Use `Model.destroy_all` code.
 # TODO!
 
+Movie.destroy_all
+Person.destroy_all
+Role.destroy_all
+
 # Generate models and tables, according to the domain model
 # TODO!
 
 # Insert data into your database that reflects the sample data shown above
 # Do not use hard-coded foreign key IDs.
 # TODO!
+
+values = { Name: "Christian Bale"}
+person = Person.new(values)
+person.save
+
+values = { Name: "Christopher Nolan"}
+person = Person.new(values)
+person.save
+
+values = { Name: "Michael Caine"}
+person = Person.new(values)
+person.save
+
+values = { Name: "Liam Neeson"}
+person = Person.new(values)
+person.save
+
+values = { Name: "Katie Holmes"}
+person = Person.new(values)
+person.save
+
+values = { Name: "Gary Oldman"}
+person = Person.new(values)
+person.save
+
+values = { Name: "Heath Ledger"}
+person = Person.new(values)
+person.save
+
+values = { Name: "Aaron Eckhart"}
+person = Person.new(values)
+person.save
+
+values = { Name: "Maggie Gyllenhaal"}
+person = Person.new(values)
+person.save
+
+values = { Name: "Tom Hardy"}
+person = Person.new(values)
+person.save
+
+values = { Name: "Joseph Gordon-Levitt"}
+person = Person.new(values)
+person.save
+
+values = { Name: "Anne Hathaway"}
+person = Person.new(values)
+person.save
+
+cnolan = Person.where({ Name: "Christopher Nolan" })[0]
+cnolan_id = cnolan.read_attribute(:id)
+
+cbale = Person.where({ Name: "Christian Bale" })[0]
+cbale_id = cbale.read_attribute(:id)
+
+mcaine = Person.where({ Name: "Michael Caine" })[0]
+mcaine_id = mcaine.read_attribute(:id)
+
+lneeson = Person.where({ Name: "Liam Neeson" })[0]
+lneeson_id = lneeson.read_attribute(:id)
+
+kholmes = Person.where({ Name: "Katie Holmes" })[0]
+kholmes_id = kholmes.read_attribute(:id)
+
+goldman = Person.where({ Name: "Gary Oldman" })[0]
+goldman_id = goldman.read_attribute(:id)
+
+hledger = Person.where({ Name: "Heath Ledger" })[0]
+hledger_id = hledger.read_attribute(:id)
+
+aeckhart = Person.where({ Name: "Aaron Eckhart" })[0]
+aechkhart_id = aeckhart.read_attribute(:id)
+
+mgyllenhaal = Person.where({ Name: "Maggie Gyllenhaal" })[0]
+mgyllenhaal_id = mgyllenhaal.read_attribute(:id)
+
+thardy = Person.where({ Name: "Tom Hardy" })[0]
+thardy_id = thardy.read_attribute(:id)
+
+jglevitt = Person.where({ Name: "Joseph Gordon-Levitt" })[0]
+jglevitt_id = jglevitt.read_attribute(:id)
+
+ahathaway = Person.where({ Name: "Anne Hathaway" })[0]
+ahathaway_id = ahathaway.read_attribute(:id)
+
+values = { title: "Batman Begins", year_released: "2005", rated: "PG-13", person_id: cnolan_id}
+movie = Movie.new(values)
+movie.save
+
+values = { title: "The Dark Knight", year_released: "2008", rated: "PG-13", person_id: cnolan_id}
+movie = Movie.new(values)
+movie.save
+
+values = { title: "The Dark Knight Rises", year_released: "2012", rated: "PG-13", person_id: cnolan_id}
+movie = Movie.new(values)
+movie.save
+
+bbegins = Movie.where({ title: "Batman Begins" })[0]
+bbegins_id = bbegins.read_attribute(:id)
+
+dknight = Movie.where({ title: "The Dark Knight" })[0]
+dknight_id = dknight.read_attribute(:id)
+
+dkrises = Movie.where({ title: "The Dark Knight Rises" })[0]
+dkrises_id = dkrises.read_attribute(:id)
+
+values = { character_name: "Bruce Wayne", movie_id: bbegins_id, person_id: cbale_id}
+role = Role.new(values)
+role.save
+
+values = { character_name: "Alfred", movie_id: bbegins_id, person_id: mcaine_id}
+role = Role.new(values)
+role.save
+
+values = { character_name: "Ra's Al Ghul", movie_id: bbegins_id, person_id: lneeson_id}
+role = Role.new(values)
+role.save
+
+values = { character_name: "Rachel Dawes", movie_id: bbegins_id, person_id: kholmes_id}
+role = Role.new(values)
+role.save
+
+values = { character_name: "Commissioner Gordon", movie_id: bbegins_id, person_id: goldman_id}
+role = Role.new(values)
+role.save
+
+values = { character_name: "Bruce Wayne", movie_id: dknight_id, person_id: cbale_id}
+role = Role.new(values)
+role.save
+
+values = { character_name: "Joker", movie_id: dknight_id, person_id: hledger_id}
+role = Role.new(values)
+role.save
+
+values = { character_name: "Harvey Dent", movie_id: dknight_id, person_id: aechkhart_id}
+role = Role.new(values)
+role.save
+
+values = { character_name: "Alfred", movie_id: dknight_id, person_id: mcaine_id}
+role = Role.new(values)
+role.save
+
+values = { character_name: "Rachel Dawes", movie_id: dknight_id, person_id: mgyllenhaal_id}
+role = Role.new(values)
+role.save
+
+values = { character_name: "Bruce Wayne", movie_id: dkrises_id, person_id: cbale_id}
+role = Role.new(values)
+role.save
+
+values = { character_name: "Commissioner Gordon", movie_id: dkrises_id, person_id: goldman_id}
+role = Role.new(values)
+role.save
+
+values = { character_name: "Bane", movie_id: dkrises_id, person_id: thardy_id}
+role = Role.new(values)
+role.save
+
+values = { character_name: "John Blake", movie_id: dkrises_id, person_id: jglevitt_id}
+role = Role.new(values)
+role.save
+
+values = { character_name: "Selina Kyle", movie_id: dkrises_id, person_id: ahathaway_id}
+role = Role.new(values)
+role.save
+
 
 # Prints a header for the movies output
 puts "Movies"
